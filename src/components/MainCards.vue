@@ -8,7 +8,7 @@ const { teams } = useAPI()
 <template>
   <div class="sub-wrapper">
     <Suspense>
-      <MainCardsSingle v-for="team in teams" :key="employee.teamId" :team="team" />
+      <MainCardsSingle v-for="team in teams" :key="team.teamId" :team="team" />
       <template #fallback>
         <div>Loading...</div>
       </template>

@@ -15,15 +15,15 @@ const api = axios.create({
   },
 })
 
-const getEmployees = async () => {
+const getTeams = async () => {
   loading.value = true
-  const { data, headers } = await api.get('/api/employees', {
+  const { data, headers } = await api.get('/api/teams', {
     params: {
       page: activePage.value,
       size: pageSize.value,
     },
   })
-  employees.value = data
+  teams.value = data
   pages.value = Number(headers['x-total-pages']) || 1
   loading.value = false
 }

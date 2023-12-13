@@ -7,10 +7,10 @@
 
   import useAPI from '@/composables/useAPI'
 
-  const { getEmployees, loading } = useAPI()
+  const { getTeams, loading } = useAPI()
 
   onMounted(async () => {
-    await getEmployees()
+    await getTeams()
   })
 </script>
 
