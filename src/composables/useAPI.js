@@ -1,7 +1,7 @@
 import { ref } from 'vue'
 import axios from 'axios'
 
-const employees = ref([])
+const teams = ref([])
 const pages = ref(1)
 const loading = ref(false)
 const activePage = ref(1)
@@ -28,13 +28,13 @@ const getEmployees = async () => {
   loading.value = false
 }
 
-const getDepartment = async (departmentId) => {
-  const { data } = await api.get(`/api/departments/${departmentId}`)
+const getTeam = async (teamId) => {
+  const { data } = await api.get(`/api/teams/${teamId}`)
   return data
 }
 
 const useAPI = () => {
-  return { employees, pages, activePage, loading, pageSize, getEmployees, getDepartment }
+  return { teams, pages, activePage, loading, pageSize, getTeams }
 }
 
 export default useAPI
