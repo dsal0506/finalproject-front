@@ -13,6 +13,7 @@ const routes = [
   { path: '/login', name: 'Login', component: LoginPage },
   { path: '/settings', name: 'Settings', component: SettingsPage, meta: { requiresAuth: true } },
   { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
+    { path: '/api/teams/:id', name: 'Team', component: () => import('@/views/TeamPage.vue')},
 ]
 
 const router = createRouter({

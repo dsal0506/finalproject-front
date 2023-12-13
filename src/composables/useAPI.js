@@ -6,6 +6,7 @@ const pages = ref(1)
 const loading = ref(false)
 const activePage = ref(1)
 const pageSize = ref(8)
+const currentTeam = ref(null)
 
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
@@ -28,13 +29,14 @@ const getTeams = async () => {
   loading.value = false
 }
 
-const getTeam = async (teamId) => {
+const fetchTeam = async (teamId) => {
   const { data } = await api.get(`/api/teams/${teamId}`)
+  currentTeam.value = data
   return data
 }
 
 const useAPI = () => {
-  return { teams, pages, activePage, loading, pageSize, getTeams }
+  return { teams, pages, activePage, loading, pageSize, getTeams, fetchTeam, currentTeam }
 }
 
 export default useAPI
